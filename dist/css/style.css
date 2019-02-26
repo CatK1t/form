@@ -523,6 +523,51 @@ input:not([type="submit"]):invalid {
   transition: max-height 1s ease-out;
 }
 
+.coming {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.coming .container {
+  min-height: 100vh;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.coming .container .coming-span {
+  font-family: 'Open Sans';
+  font-size: 30px;
+  color: #fff;
+}
+
+.coming .header_top_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.coming #footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .contact_form {
     max-width: 580px;
@@ -569,6 +614,18 @@ input:not([type="submit"]):invalid {
   .input-requirements {
     font-size: 10px;
     overflow: hidden;
+  }
+  .coming .header_top_bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .coming #footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */
