@@ -4,14 +4,6 @@
     changeYear: true,yearRange: '1960:2012' });
     $( ".gender" ).checkboxradio();
     /*=================================*/
-    /* PRELOAD */
-    /*=================================*/
-    $(window).on('load', function () {
-        if ($('.preloader-text').length) {
-            $('.preloader-text').fadeOut(500);
-        }
-    });
-    /*=================================*/
     /* MOBILE MENU */
     /*=================================*/
     $('.mob-nav').on('click', function (e) {

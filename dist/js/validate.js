@@ -324,18 +324,6 @@ email.onmouseleave = function () {
         select.classList.add('valid');
     }
 }
-function testKey(){
-    var testText =  this.value;
-    if(testText*'"' !=  this.value){
-        this.value = testText.substring(0, testText.length - 1) 
-      }
-  }
-var text = document.querySelectorAll(".texted"),
-      testText;
-
-      for (var i = 0; i < text.length; i++) {
-        text[i].onkeyup =  testKey;
-      }
       
 
 submit.addEventListener('click', validate );
