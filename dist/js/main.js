@@ -1,6 +1,7 @@
 (function ($, window, document, undefined) {
     'use strict';
-    $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
+    $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd",changeMonth: true,
+    changeYear: true,yearRange: '1960:2012' });
     $( ".gender" ).checkboxradio();
     /*=================================*/
     /* PRELOAD */
@@ -104,6 +105,7 @@
     defaultOption.text = 'Choose State/Province';
     defaultOption.setAttribute('disabled', '');
     defaultOption.setAttribute('selected', '');
+    defaultOption.setAttribute('value', '');
 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
@@ -149,6 +151,7 @@
     }else {
         creatOption (json);
     }
+    
     
     $(window).on('load resize', function () {
         fixedMobileMenu();

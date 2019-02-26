@@ -10,6 +10,7 @@
     <link rel="stylesheet" id="fonts-css"                   href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css" media="all">
     <!--Our Styles-->
     <link rel="stylesheet" id="header-css"                  href="css/header.css"                    type="text/css" media="all">
+    <link rel="stylesheet" id="header-css"                  href="css/formcss.css"                   type="text/css" media="all">
     <link rel="stylesheet" id="main-css"                    href="css/style.css"                     type="text/css" media="all">
     <link rel="stylesheet" id="font-awesome-css-css"        href="css/font-awesome.min.css"          type="text/css" media="all">
     <link rel="stylesheet" id="bootstrap-css"               href="css/bootstrap.min.css"             type="text/css" media="all">
@@ -113,61 +114,138 @@
 
             <div class="contact_form">
                 <h3 class="heading-h3">Contact Us</h3>
-                <form action="handler.php" method="post" class="form">
+                <form onsubmit="alert('Validation passed!'); return true" class="form registration" id="registration">
                     <div class="form-connected">
 
+                        
+
                         <div class="form_item">
-                            <label for="first-name" class="first-name-label label">First Name:</label>
-                            <input type="text" name="your-name" value="" size="40" id="first-name" placeholder="First name">
+                            <label for="first-name" class="label">
+
+                                <div class="df">
+                                    <span class="name">First Name</span>
+                                    <input class="input texted" type="text" id="first-name" minlength="3" required placeholder="First name">
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid">At least 3 characters long</li>
+                                    <li class="invalid">Must only contain letters and numbers (no special characters)</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="last-name" class="last-name-label label">Last Name:</label>
-                            <input type="text" name="your-name" value="" size="40" id="last-name" placeholder="Last name">
+                            <label for="last-name" class="label">
+                                <div class="df">
+                                    <span class="name">Last Name</span>
+                                    <input class="input texted" type="text" id="last-name" minlength="3" required placeholder="Last name">
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid">At least 3 characters long</li>
+                                    <li class="invalid">Must only contain letters and numbers (no special characters)</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="datepicker" class="label">Birthday:</label>
-                            <input type="date" id="datepicker">
+                            <label for="datepicker" class="label">
+                                <div class="df">
+                                    <span class="name">Birthday:</span>
+                                    <input class="input" type="date" name="date" id="datepicker" required>
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid">Please select your date</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="radio-1, radio-2" class="for-gendor label">Gender:</label>
-                            <div class="half-of-gender">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="gender" class="gender" id="radio-1">Male
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="gender" class="gender" id="radio-2">Female
-                                    </label>
-                            </div>
+                                <label for="gender" class="for-gendor label">
+                                <div class="df">
+                                    <span class="name">Gender:</span>
+                                    <div class="half-of-gender">
+                                        <label class="radio-inline" for="radio-1">
+                                            <input type="radio" name="gender" class="gender" id="radio-1" required>Male
+                                        </label>
+                                        <label class="radio-inline" for="radio-2">
+                                            <input type="radio" name="gender" class="gender" id="radio-2" required>Female
+                                        </label>
+                                    </div>
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="select-gender">Please select your gender</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="country" class="for-gendor label">Select the country:</label>
-                            <select id="country" name="country" class="form-control">
-                              
-                            </select>
+                            <label for="country" class="label">
+                                <div class="df">
+                                    <span class="name">Select the country:</span>
+                                    <select id="country" name="country" class="form-control" required>
+                                
+                                    </select>
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid country">Please select your country</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="email" class="label">Your Email:</label>
-                            <input type="email" name="your-email" value="" size="40" id="email" placeholder="Email">
+                            <label for="email" class="label">
+                                <div class="df">
+                                    <span class="name">Your Email:</span>
+                                    <input type="email" name="your-email" value="" size="40" id="email" placeholder="Email" required>
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid email-li">Please select your country</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="pass" class="label">Your Password:</label>
-                            <input type="password" id="pass" name="password" minlength="8" placeholder="Password">
+                            <label for="password" class="label">
+                                <div class="df">
+                                    <span class="name">Your Password:</span>
+                                    <input type="password" id="password" maxlength="100" minlength="8" required placeholder="Password">
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid">At least 8 characters long (and less than 100 characters)</li>
+                                    <li class="invalid">Contains at least 1 number</li>
+                                    <li class="invalid">Contains at least 1 lowercase letter</li>
+                                    <li class="invalid">Contains at least 1 uppercase letter</li>
+                                    <li class="invalid">Contains a special character (e.g. @ !)</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="adress" class="label">Your Adress:</label>
-                            <input type="text" name="your-address" value="" size="40" id="adress" placeholder="Address">
+                            <label for="adress" class="label">
+                                <div class="df">
+                                    <span class="name">Your Adress:</span>
+                                    <input class="texted" type="text" name="your-address" id="adress" value="" size="40" id="adress" required placeholder="Address">
+                                </div>
+                
+                                <ul class="input-requirements">
+                                    <li class="invalid email-li">Please write your adress</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <div class="form_item">
-                            <label for="text" class="label">Your Message:</label>
-                            <textarea name="your-message" cols="40" rows="4" id="text" placeholder="Your Message.."></textarea>
+                            <label for="text" class="label">
+                                <div class="df text-he">
+                                    <span class="name text-he mob-he">Your Message:</span>
+                                    <textarea class="text-he" name="your-message" cols="40" rows="4" id="text" placeholder="Your Message.."></textarea>
+                                </div>
+                            </label>
                         </div>
                         
                         <div class="submit">
@@ -210,6 +288,7 @@
         
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/json/countryData.js"></script>
+    <script type="text/javascript" src="js/validate.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

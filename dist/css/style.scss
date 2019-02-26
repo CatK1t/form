@@ -248,6 +248,7 @@ a {
             .form_item {
                 min-width: 100%;
                 display: flex;
+                margin-bottom: 10px;
 
             }
         }
@@ -268,7 +269,6 @@ a {
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .form-control {
     display: block;
     outline: 0!important;
-    vertical-align: middle;
 }
 
 input, textarea {
@@ -284,27 +284,26 @@ input {
     color: #222;
     line-height: normal;
 }
+.df {
+    display: flex;
+    flex: 0 0 100%;
+}
 
 .form_item {
     min-height: 46px;
-
-    #last-name {
-        border-top: 0;
-    }
+    display: flex;
+    flex-direction: column;
 
     #datepicker {
         flex: 0 0 50%;
         padding: 4px 10px;
-        border-top: 0px;
     }
 
     .half-of-gender {
         flex: 0 0 50%;
         display: flex;
         align-items: center;
-        border-right: 1px solid rgb(215, 215, 215);
-        border-bottom: 1px solid rgb(215, 215, 215);
-        border-left: 1px solid rgb(215, 215, 215);
+        border: 1px solid rgb(215, 215, 215);
         padding-left: 10px;
     }
 
@@ -312,8 +311,6 @@ input {
         font-family: 'Open sans';
         min-height: 46px;
         border-radius: 0;
-        border-top: 0;
-        border-bottom: 0;
 
         &:focus {
             box-shadow: none;
@@ -323,10 +320,22 @@ input {
 
 }
 
+.text-he {
+    height: auto !important;
+}
+
 input::-webkit-inner-spin-button { display: none; }
 
-.form_item .label 
+.form_item .label {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.form_item .label .name, .form_item .label input, .form-connected textarea
 {
+    text-align: left;
     border-radius: 0;
     padding-left: 10px;
     flex: 0 0 50%;
@@ -335,11 +344,17 @@ input::-webkit-inner-spin-button { display: none; }
     color: #999;
     letter-spacing: 1px;
     margin: 0;
-    height: 100%;
+    height: 46px;
     display: flex;
     align-items: center;
     border-left: 1px solid rgb(215, 215, 215);
     border-bottom: 1px solid rgb(215, 215, 215);
+    border-top: 1px solid rgb(215, 215, 215);
+}
+
+.form_item .label input:focus {
+    border-color: rgb(215, 215, 215);
+    background-color: #fff;
 }
 
 .first-name-label {
@@ -358,6 +373,16 @@ input::-webkit-inner-spin-button { display: none; }
 
 .ui-visual-focus {
     box-shadow: 0 0 3px 1px #15ff00 !important; 
+}
+
+.ui-datepicker-title {
+    display: flex !important;
+    justify-content: center;
+    align-content: center;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    top: 12px !important;
 }
 
 .submit {
@@ -402,3 +427,97 @@ input::-webkit-inner-spin-button { display: none; }
         }
     }
 }
+
+.input-requirements {
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: left;
+    list-style: disc;
+    list-style-position: inside;
+    max-width: 400px;
+    margin: 10px auto;
+    color: rgb(150,150,150);
+  }
+  
+  
+  .input-requirements li.invalid {
+      color: #e74c3c;
+  }
+  .input-requirements li.valid {
+      color: #2ecc71;
+  }
+  
+  .input-requirements li.valid:after {
+      display: inline-block;
+      padding-left: 10px;
+      content: "\2713";
+  }
+
+  input:not([type="submit"]):valid {
+    border-color: #2ecc71;
+  }
+
+  input:not([type="submit"]):invalid {
+    border-bottom: 1px solid #ff2121;
+  }
+  
+  .onhover, .onhover-checking {
+      visibility: visible;
+        max-height: 100%;
+        transition: max-height 1s ease-out;
+  }
+  
+@media (max-width: 768px) {
+    .contact_form {
+        max-width: 580px;
+    }
+    .contact_form .form {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 580px) {
+    .contact_form {
+        max-width: 480px;
+    }
+    .contact_form .form {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .form_item .label .name, .form_item .label input, .form-connected textarea {
+        border: 1px solid;
+    }
+    .form_item .label .name {
+        border-bottom: 0px;
+    }
+
+    .form_item .half-of-gender, .mob-he {
+        height: 46px !important;
+    }
+
+    .input-requirements{
+        margin: 4px;
+        max-width: 300px;
+        max-width: 100%;
+        font-size: 12px;
+    }
+
+    .df {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 420px) {
+    .input-requirements{
+        font-size: 10px;
+        overflow: hidden;
+    }
+}
+  
+  
+  
+  
+  
