@@ -95,6 +95,61 @@
         footer.trigger('heightChange');
     }
 
+    //COUNTRY DATA
+
+    let dropdown = document.getElementById('country');
+    dropdown.length = 0;
+
+    let defaultOption = document.createElement('option');
+    defaultOption.text = 'Choose State/Province';
+    defaultOption.setAttribute('disabled', '');
+    defaultOption.setAttribute('selected', '');
+
+    dropdown.add(defaultOption);
+    dropdown.selectedIndex = 0;
+
+    function creatOption (data) {
+        let option;
+            
+        for (let i = 0; i < data.length; i++) {
+        option = document.createElement('option');
+        option.text = data[i].name;
+        option.value = data[i].code;
+        dropdown.add(option);
+        }
+    }
+
+    var json = data;
+
+    if(json == null && json == undefined) {
+
+        // WE CAN LOAD BY FETCH 
+
+        const url = 'https://api.myjson.com/bins/7xq2x';
+
+        fetch(url)  
+        .then(  
+            function(response) {  
+            if (response.status !== 200) {  
+                console.warn('Looks like there was a problem. Status Code: ' + 
+                response.status);  
+                return;  
+            }
+    
+            // Examine the text in the response  
+            response.json().then(function(data) {  
+                creatOption (data);
+            });  
+            }  
+        )  
+        .catch(function(err) {  
+            console.error('Fetch Error -', err);  
+        });
+    
+    }else {
+        creatOption (json);
+    }
+    
     $(window).on('load resize', function () {
         fixedMobileMenu();
         calcPaddingMainWrapper();
